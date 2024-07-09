@@ -1,0 +1,11 @@
+langchain-core==0.2.12
+langgraph==0.1.5
+langsmith==0.1.84
+pydantic==2.8.2
+pydantic_core==2.20.1
+requests==2.32.3
+tavily-python==0.3.3
+urllib3==2.2.2
+langchain_openai==0.1.14
+langchain==0.2.7
+langchain-community==0.2.7
