@@ -14,10 +14,12 @@ class FitnessAgent:
         self.tavily_client = TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
         self.current_workout_plan = None
         self.adjusted_workout_plan = None
+        self.feedback = None
 
     def create_workout_plan(self):
         context = self.tavily_client.get_search_context(
-            query=f"workout plan for {self.user_data['age']} year old, {self.user_data['weight']} kg person"
+            query=f"workout plan for {self.user_data['age']} year old, {self.user_data['weight']} kg {self.user_data.get('gender', '')} person",
+            search_depth="advanced",
         )
         fitness_goals = self.user_data["fitness_goals"].lower()
 
@@ -96,7 +98,7 @@ class FitnessAgent:
             self.adjusted_workout_plan = self.adjust_workout_plan(
                 feedback, self.current_workout_plan
             )
-            return_data.update({"adjusted_workout_plan": self.adjusted_workout_plan})
+            return_data.update({"current_workout_plan": self.adjusted_workout_plan})
         return return_data
 
 

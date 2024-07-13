@@ -13,10 +13,12 @@ class NutritionAgent:
         self.tavily_client = TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
         self.current_meal_plan = None
         self.adjusted_meal_plan = None
+        self.feedback = None
 
     def create_meal_plan(self):
         context = self.tavily_client.get_search_context(
-            query=f"meal plan for {self.user_data['age']} year old, {self.user_data['weight']} kg person with dietary preferences: {self.user_data['dietary_preferences']}"
+            query=f"meal plan for {self.user_data.get('gender', '')} person who is {self.user_data['age']} year old, weighs {self.user_data['weight']} kg person with dietary preferences: {self.user_data['dietary_preferences']}",
+            search_depth="advanced"
         )
         dietary_preferences = self.user_data["dietary_preferences"]
         prompt = [
@@ -93,7 +95,7 @@ class NutritionAgent:
 
         else:
             self.adjusted_meal_plan = self.adjust_meal_plan(feedback)
-            return_data.update({"adjusted_meal_plan": self.adjusted_meal_plan})
+            return_data.update({"current_meal_plan": self.adjusted_meal_plan})
         return return_data
 
 
