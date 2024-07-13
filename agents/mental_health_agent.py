@@ -29,10 +29,10 @@ class MentalHealthAgent:
                 {
                     "role": "user",
                     "content": f"User data: {self.user_data}\n"
-                               f"Additional context: {context}\n"
-                               f"Provide mental wellness tips for someone looking to {mental_health_goals}.\n"
-                               f"Please return the tips in the following JSON format:\n"
-                               f'{{"wellness_tips": ["Tip 1", "Tip 2", "Tip 3", "Tip 4"]}}\n',
+                    f"Additional context: {context}\n"
+                    f"Provide mental wellness tips for someone looking to {mental_health_goals}.\n"
+                    f"Please return the tips in the following JSON format:\n"
+                    f'{{"wellness_tips": ["Tip 1", "Tip 2", "Tip 3", "Tip 4"]}}\n',
                 },
             ]
         else:
@@ -44,11 +44,11 @@ class MentalHealthAgent:
                 {
                     "role": "user",
                     "content": f"User data: {self.user_data}\n"
-                               f"Previously provided wellnes tips: {self.wellness_tips}\n"
-                               f"Provide mental wellness tips for someone looking to {mental_health_goals}.\n"
-                               f"The user has provided feedback on the previously provided wellness tips: {feedback}\n"
-                               f"Please return the tips in the following JSON format:\n"
-                               f'{{"wellness_tips": ["Tip 1", "Tip 2", "Tip 3", "Tip 4"]}}\n',
+                    f"Previously provided wellnes tips: {self.wellness_tips}\n"
+                    f"Provide mental wellness tips for someone looking to {mental_health_goals}.\n"
+                    f"The user has provided feedback on the previously provided wellness tips: {feedback}\n"
+                    f"Please return the tips in the following JSON format:\n"
+                    f'{{"wellness_tips": ["Tip 1", "Tip 2", "Tip 3", "Tip 4"]}}\n',
                 },
             ]
 
@@ -58,8 +58,8 @@ class MentalHealthAgent:
             ChatOpenAI(
                 model="gpt-4-0125-preview", max_retries=1, model_kwargs=optional_params
             )
-                .invoke(lc_messages)
-                .content
+            .invoke(lc_messages)
+            .content
         )
         result = json.loads(response)
         print("Wellness Tip: \n")
