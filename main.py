@@ -21,16 +21,16 @@ def collect_feedback(agent_name):
 
 def main():
     # Collect user data
-    user_data = collect_user_data()
-    # user_data = {
-    #     "name": "Prithviraj",
-    #     "age": 25,
-    #     "weight": 94,
-    #     "height": 186,
-    #     "fitness_goals": "lose fat and gain muscle",
-    #     "dietary_preferences": "non veg",
-    #     "mental_health_goals": "lose fat and maintain muscle",
-    # }
+    # user_data = collect_user_data()
+    user_data = {
+        "name": "Prithviraj",
+        "age": 25,
+        "weight": 94,
+        "height": 186,
+        "fitness_goals": "lose fat and gain muscle",
+        "dietary_preferences": "non veg",
+        "mental_health_goals": "lose fat and maintain muscle",
+    }
 
     # Initialize agents
     fitness_agent = FitnessAgent(user_data)
