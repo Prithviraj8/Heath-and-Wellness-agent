@@ -93,8 +93,10 @@ class FitnessAgent:
             return_data.update({"current_workout_plan": self.current_workout_plan})
 
         else:
-            self.adjusted_workout_plan = self.adjust_workout_plan(feedback, self.current_workout_plan)
-            return_data.update({"adjusted_workout_plan" :self.adjusted_workout_plan})
+            self.adjusted_workout_plan = self.adjust_workout_plan(
+                feedback, self.current_workout_plan
+            )
+            return_data.update({"adjusted_workout_plan": self.adjusted_workout_plan})
         return return_data
 
 

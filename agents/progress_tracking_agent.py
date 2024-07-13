@@ -63,6 +63,7 @@ class ProgressTrackingAgent:
         return_data.update({"progress": self.generate_report()})
         return return_data
 
+
 if __name__ == "__main__":
     from pprint import pprint
 
